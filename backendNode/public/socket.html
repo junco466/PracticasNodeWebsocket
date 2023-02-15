@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Websocket</title>
+    <!--este es el modulo para traer websocket en html-->>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <h1>Mira la consola</h1>
+    <script>
+      //Me conecto al tunel abierto desde server.js
+        var socket = io.connect('http://localhost:3000',{
+            forceNew: true,
+        });
+
+        //escucho los mensajes del cana 'message', y realizo una funcion con los datos
+        socket.on('message', function(data){
+            console.log(data);
+        });
+    </script>
+</body>
+</html>

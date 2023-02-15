@@ -1,0 +1,95 @@
+-> PETICIONES HTTP:
+
+Una petición HTTP es un protocolo de comunicación que permite las transferencias de información en la web.
+
+Es el lenguaje común para todas las comunicaciones.
+
+¿Cómo es una petición?
+
+GET /index.html HTTP/1.1
+Host: www.example.com
+Referer: www.google.com
+User-Agent: Mozilla/5.0
+Connection: keep-alive
+
+Puntos claves a tener en cuenta:
+
+Métodos: Qué quieres hacer
+Estado: Cómo ha ido la operación
+Cuerpo: Lo que el servidor devuelve
+
+
+
+-> Métodos HTTP:
+
+GET: Recoger información del servidor.
+POST: Añadir información al servidor.
+PUT: Reemplazar información en el servidor.
+PATCH: Actualizar parte de la información.
+DELETE: Eliminar información del servidor.
+OPTIONS: Pedir información sobre métodos (saber si podemos ejecutar alguno de los métodos anteriores).
+
+
+Las cabeceras serán el envío al servidor de cómo queremos hacer la petición.
+
+Cabeceras: informacion contextual de la peticion (no es lo que quiero hacer si no como lo quiero realizar)
+-Request: el request púede ser POST, PUT, PATCH, Autentication, cache, condiciones, cors, cookies
+-cookies = compartir informacion entre peticiones
+-cors (cross Origin Resource Sharing) = compartir informacion afuera de nuestro servidor (Access-Control-Allow-Origin) 
+-accept: esta solo indica que contino va a aceptar (Accept, Accept-Charset, Accept-Encoding)
+- Autenticación: se asegura que puedes realizar una solicitud al servidor (Authorization).
+- Cache  = gestiona por cuanto tiempo la respuesta sera la misma (Cache-Control, Expires)
+
+-> Estados: indica con un numero lo que a pasado en la peticion.
+	200: ok
+	201: Created
+	
+	Las que empiecen con 3 la peticion se redirigido
+	301: Moved permanently
+	304: Nor Modified
+	
+	errores: del cliente	
+	400: bag request
+	401: Unauthorized
+	403: Forbidden
+	404: nor found
+	
+	errores: del servidor
+	500: ha habido algun problema interno
+
+
+-> CUERPO Y QUERY DE LA PETICION:
+
+CUERPO:
+Informacion de la peticion. Los datos del usuario que queremos añadir o enviar al servidor o lo que pedimos. Si me mandan el url del usuario
+Que tiene y como viene?
+CONTENT-TYPE:
+Que formatos: Depende de las cabeceras: Ej. -> text/html, text/css, application/json (el archivo js para que el navegador lo ejecute) image/jpeg
+
+REQUEST: Es la peticion al servidor
+Ej. POST: usuario sin id, GET a platzi.com
+RESPONSE: Cualquier metodo que recibimos del servidor, ejm: content-type: application/json, viene este archivo con el id traido del servidor., trae un html de index.html de platzi
+
+QUERY:
+Informacion extra. Orden en el que quiero que vuelvan los parametros. Por ejemplo cuando le pasamos un id
+api.com/person?orderBy=name&age=25
+Para compartir datos con el frontend, nunca debe enviarse info sensible como tokens o tarjetas de creditos visibles en los parametros del query para la url
+Ej. miweb.com?color=red
+
+ESTRUCTURA:
+
+Añadir ? al final de la URL
+nombre=valor, ejemplo id=3
+Separarlos con & si es más de 1 parámetro
+
+
+ ->BASES DE DATOS: 
+Bases de Datos Relacionales: no es una base de datos muy flexible, pero tiene a favor su gran soporte y el enorme desarrollo en herramientas para su uso. Si necesitamos cambiar un valor de un campo debemos hacerlo con todos los campos de nuestra BD, en cambio con NoSQL o No Relacional no es así.
+
+Bases de Datos No Relacionales: son de bases de datos sin una tabla fija como las que sí se encuentran en las bases de datos relacionales, lo que permite una alta escalabilidad en ellas. Además, es abierta y, por lo tanto, flexible a diferentes tipos de datos y no necesita tantos recursos para ejecutarse; de hecho, el hardware necesario no cuesta mucho.
+
+En estos recursos podemos encontrar más a fondo qué tipos de bases de datos existen.
+
+-> Websocket:
+
+El protocolo Websocket o wss:// crea un túnel de información entre el usuario y el servidor el cual se quedará abierto hasta que el servidor y/o el cliente cierre la conexión para pedir información en tiempo real.
